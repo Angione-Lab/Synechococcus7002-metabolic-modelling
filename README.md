@@ -1,1 +1,1 @@
-# Synechococcus-metabolic-modelling
+# old Synechococcus-metabolic-modelling code files
