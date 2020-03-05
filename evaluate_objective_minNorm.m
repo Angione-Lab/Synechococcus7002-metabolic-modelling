@@ -67,16 +67,16 @@ for i=1:length(num_reaction_expression)
 end
 
 
-gamma = ones(1,length(reaction_expression));
+gamma = 3.5.*ones(1,length(reaction_expression)); %vary gamma by 3.5.*ones
 
-% 
+
 % for i=1:length(num_reaction_expression)   %loop over the array of the geneset expressions
 %     if num_reaction_expression(i)>=1
-%         fbarecon.lb(i) = fbarecon.lb(i)*(1+gamma(i)*log(num_reaction_expression(i)));
-%         fbarecon.ub(i) = fbarecon.ub(i)*(1+gamma(i)*log(num_reaction_expression(i)));
+%         fbamodel.lb(i) = fbamodel.lb(i)*(1+gamma(i)*log(num_reaction_expression(i)));
+%         fbamodel.ub(i) = fbamodel.ub(i)*(1+gamma(i)*log(num_reaction_expression(i)));
 %     else
-%         fbarecon.lb(i) = fbarecon.lb(i)/(1+gamma(i)*abs(log(num_reaction_expression(i))));
-%         fbarecon.ub(i) = fbarecon.ub(i)/(1+gamma(i)*abs(log(num_reaction_expression(i))));
+%         fbamodel.lb(i) = fbamodel.lb(i)/(1+gamma(i)*abs(log(num_reaction_expression(i))));
+%         fbamodel.ub(i) = fbamodel.ub(i)/(1+gamma(i)*abs(log(num_reaction_expression(i))));
 %     end
 % end
 
@@ -93,7 +93,7 @@ end
 %%
 [fMinNorm, v_old, gmax, biomassMax] = flux_balance_minNorm(fbamodel,false);
 %f_out(1) = vbiomass; % Biomass
-%f_out(2) = fmax; % max of the 2nd objective
+%f_out(2) = fmin; % min of the 2nd objective
 
 max_fluxes = [biomassMax,gmax];
 

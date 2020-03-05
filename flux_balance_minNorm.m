@@ -46,9 +46,11 @@ ctype = char('S' * ones(1, nmetab + nnz(~yt) + 1)); %S = equality for first obje
 [vmax, fmax] = glpk(fbamodel.g, A, b, fbamodel.lb, fbamodel.ub, ctype, vartype, -1); %vmax = fluxes, fmax = optimal flux for 2nd objective
 
     
+
 if ~quiet
     fprintf('Flux balance Biomass flux:    %f\n', vbiomass)
-    fprintf('Flux balance secondary obj flux:  %f\n', fmax)
+    fprintf('Flux balance secondary flux:  %f\n', fmax)
+
 end
 
 %% minNorm
