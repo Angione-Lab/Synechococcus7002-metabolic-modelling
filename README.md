@@ -17,8 +17,6 @@ PCA in conducted in R using the script PCA_script.R
 
 k-means clustering is run using the statistics_on_genes.m script, which also calls mdscale_robust.m, a script that applies multidimensional scaling to avoid co-location of data points during clustering.
 
-Top 10 positive and negative PCC coefficients () were plotted against growth rates 
-
 Flux maps in Fig 5 of the main text were generated using Escher http://escher.github.io/
 The .json model and map are saved as SynPCC7002_model.json and SynPCC7002_map.json.
 Reaction data were loaded using the python script flux_comparison_json.py, which produces output files for various growth conditions.
