@@ -1,15 +1,12 @@
-%addpath(genpath('C:\Program Files\MATLAB\R2015b\toolbox\cobra'));
-%addpath(genpath('C:\Users\Supreeta\OneDrive\Synechococcus code'));
-%initCobraToolbox
+%RUN_all script runs norm-2 regularized bi-level optimization, integrating RNA-seq data from Cyanomics \url{http://lag.ihb.ac.cn/cyanomics}:
 
-%load('geni_names.mat');
 load('reaction_expression.mat');
 load('SynechococcusPCC7002.mat'); %fbamodel
 load('pos_genes_in_react_expr.mat');
 load('ixs_geni_sorted_by_length.mat');
 load('Syn7002_IDs.mat'); % list of gene IDs extracted from transcriptomic reads file
 
-%load conditions i.e. RPKM fold change values normalised 0-1
+% load conditions i.e. RPKM fold change values normalised 0-1
 load('AmmonianewFC.mat')
 load('DarkanoxicnewFC.mat')
 load('DarkoxicnewFC.mat')
@@ -40,25 +37,19 @@ genes_in_dataset = Syn7002_IDs;
 M = 2; %number of objectives
 V = numel(genes); %number of variables
 
-%Check current objective functions
+% Check current objective functions
 ix_f = find(fbamodel.f==1); %check current primary objective
 ix_g = find(fbamodel.g==1); %check current secondary objective
 
-%Set new primary objective f
+% Set new primary objective f
 ix_new_f = 735; % set new main objective = standard biomass (735) or 73=c-lim, 74=nlim, 75=llim?
-% ix_new_f = 74; % nlim biomass
-% ix_new_f = 75; % llim biomass
-
-%ix_new_g = find(ismember(fbamodel.rxns,'EX_PHOTON_E')==1); %set new main objective = photon exchange 
 
 % Set new secondary objective g
- ix_new_g = find(ismember(fbamodel.rxnNames,'ATP maintenance requirment')==1);
+ix_new_g = find(ismember(fbamodel.rxnNames,'ATP maintenance requirment')==1);
 % ix_new_g = find(ismember(fbamodel.rxnNames,'Photosystem I Reaction (cytochrome c6)')==1);
 % ix_new_g = find(ismember(fbamodel.rxnNames,'photosystem II reaction')==1);
-% ix_new_g = 706; %#ATP synthase (four protons for 1 ATP) 699= ATPS14Rtlm in [tll] or 706 for ATPS14Rcpm in [pps]
-% ix_new_g = find(ismember(fbamodel.rxns,'EX_PHOTON_E')==1); %set new main objective = photon exchange 
 
-%Select new objective functions for simulation
+% Select new objective functions for simulation
 
 fbamodel.f(ix_f) = 0;
 fbamodel.f(ix_new_f) = 1;
@@ -69,8 +60,7 @@ fbamodel.g(ix_new_g) = 1;
 %% Model constraints
 %% Boundary constraints to simulate growth medium and record experimentally feasible growth rates
 %% Load new flux bounds 
-%Load list of variables including rxn names, indices and new values for
-%lower and upper bounds in the model
+%% Load list of variables including rxn names, indices and new values for lower and upper bounds in the model
 load('bounds.mat')
 
 %% Solver
@@ -78,13 +68,6 @@ load('bounds.mat')
 changeCobraSolver('gurobi','LP');
 changeCobraSolver('gurobi','QP');
 changeCobraSolverParams('QP', 'method', 1); %avoid solver feasibility error
-
-% %% Set limits for all reaction bounds
-% lb1000=find(fbamodel.lb==-1000);%find all reactions where lb = -1000
-% ub1000=find(fbamodel.ub==1000);%find all reactions where ub = 1000
-% 
-% fbamodel.lb(lb1000)=-100;%set all lb that were previously -1000 to -100
-% fbamodel.ub(ub1000)=100;%set all ub that were previously 1000 to 100
 
 %% Set new bounds for standard control condition
 fbamodel.lb(new_lb_ixs)=new_lb_val(1:15,1);
@@ -672,4 +655,5 @@ V = numel(genes);
 [v1_hs, f_out_hs] = evaluate_objective_minNorm(x,M,V,fbamodel,genes,reaction_expression,pos_genes_in_react_expr,ixs_geni_sorted_by_length); 
 % % % 
 % % %% Concatenate flux vectors for all growth conditions
- all_atp_flux = [v1_control,v1_do,v1_da,v1_hl,v1_od04,v1_od10,v1_od30,v1_od50,v1_lo2,v1_lco2,v1_nlim,v1_slim,v1_plim,v1_felim,v1_no3,v1_nh3,v1_urea,v1_heat,v1_22c,v1_30c,v1_oxs,v1_mix,v1_ls,v1_hs];
+all_atp_flux = [v1_control,v1_do,v1_da,v1_hl,v1_od04,v1_od10,v1_od30,v1_od50,v1_lo2,v1_lco2,v1_nlim,v1_slim,v1_plim,v1_felim,v1_no3,v1_nh3,v1_urea,v1_heat,v1_22c,v1_30c,v1_oxs,v1_mix,v1_ls,v1_hs];
+% Change all_atp_flux to all_p1_flux or all_p2_flux when changing ix_new_g (secondary flux objective)
