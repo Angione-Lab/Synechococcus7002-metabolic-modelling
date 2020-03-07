@@ -6,10 +6,8 @@ load('Syn7002_IDs.mat'); % list of gene IDs extracted from transcriptomic reads 
 genes = fbamodel.genes; 
 genes_in_dataset = Syn7002_IDs;
 
-
 V = numel(genes);
 M = 2; %number of objectives
-
 
 %% COMPUTE PROFILES OF THE NONDOMINATED POINTS
 
@@ -20,22 +18,14 @@ all_solutions = transcripts'; % same dataset here
 %%
 all_biomass_values = all_solutions(:,1);
 
-
-
 profiles = all_objpairs;%(ix_of_interest,:);
 genes_vs_profiles = profiles'; %we need to use profiles' and not profiles, because otherwise it would compute the correlation (and all the following measures) between profiles along all the genes, while we want the correlation between genes along the profiles
 
 
-dist_correlation_vector = pdist(zscore(genes_vs_profiles), 'correlation'); 
+dist_correlation_vector = pdist(zscore(genes_vs_profiles), 'correlation'); %use zscore to standardize each of the profiles to have zero mean and unit variance
 dist_correlation_matrix = squareform(dist_correlation_vector);
 
 clusterTree = linkage(dist_correlation_vector, 'average');
-
-
-
-
-
-
 
 %% *******************************************************************************************************************************************************************************
 %try k-means clustering with a few number of clusters: the result was
