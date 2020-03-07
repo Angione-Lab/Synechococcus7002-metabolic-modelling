@@ -1,10 +1,3 @@
-%addpath(genpath('C:/Program Files/MATLAB/R2017a/toolbox/stats'));
-
-%load('recon2_merged_bio_PHGDH.mat');
-%load('non_dominated.mat');
-%load('others.mat');
-%load('geni.mat');
-%load('geni_names.mat');
 load('SynechococcusPCC7002.mat'); %fbamodel
 load('Syn7002_IDs.mat'); % list of gene IDs extracted from transcriptomic reads file
 
@@ -29,11 +22,7 @@ M = 2; %number of objectives
 % end
 %load('non_dominated_chromosomes.mat'); %if the profiles_nondom have been already computed before
 %load('others_chromosomes.mat');
-% load('FCP1.mat')
-% load('FCP2.mat')
-% load('FCATP.mat')
-% load('transcripts.mat')
-load('matlab_24.01.20.mat')
+load('transcripts.mat')
 all_objpairs = transcripts'; % choose dataset
 all_solutions = transcripts'; % same dataset here
 
@@ -225,104 +214,3 @@ labels = num2str((1:size(Y,1))','%d');    %'
 text(Y(:,1), Y(:,2), labels, 'horizontal','left', 'vertical','bottom')
 
 %colorbar;
-
-
-% load('EDGE_results.mat');
-% 
-% figure
-% low_edge = find(edge_bio < 0.1);
-% high_edge = find(edge_bio >= 0.1);
-
-
-% C = edge_bio(low_edge);  %colour according to the low edge score
-% colormap(jet(256))
-% scatter(Y(low_edge,1),Y(low_edge,2),200,C,'.');
-% %title('EDGE score');
-% colorbar;
-% hold on
-% scatter(Y(high_edge,1),Y(high_edge,2),200,'black','X');
-% gname(geni_names);
-% disp('Genes with highest EDGE:');
-% disp(geni_names(high_edge))
-%
-% box on
-% set(gca, 'XTickLabel', [])
-% set(gca, 'YTickLabel', [])
-% set(gca, 'XTick', [])
-% set(gca, 'YTick', [])
-%
-%
-% cluster_edge_table = [geni geni_names num2cell(edge_bio) num2cell(clusters) num2cell(cidx) ];
-% cluster_edge_table = sortrows(cluster_edge_table,3);
-% distance_from_zero = sqrt(sum(Y.^2,2)); %row-wise norm of Y
-%
-% low_distance_genes = find(distance_from_zero < 0.03);
-% for i = 1:numel(low_distance_genes)
-%     occurrences_low_distance_genes{i} = find(~cellfun('isempty',strfind(fbarecon.grRules,geni{low_distance_genes(i)})));
-% end
-
-
-%% check position (in the multidimensional scaling) of the 7 high-EDGE genes in the original Recon+Quek et al. model
-% figure
-% load('geni_edge_results.mat');
-% geni_high_edge = geni_edge_results(high_edge);
-% 
-% for i = 1:numel(geni_high_edge)
-%     ixs_geni_edge_in_geni(i) = find(strcmp(geni_high_edge(i), geni));
-% end
-% 
-% C = clusters;  %colour according to hierarchical clustering
-% colormap(jet(256))
-% scatter(Y(:,1),Y(:,2),200,C,'.');
-% title('Hierarchical clustering   [X = 7 high-EDGE genes]');
-% colorbar;
-% hold on
-% scatter(Y(ixs_geni_edge_in_geni,1),Y(ixs_geni_edge_in_geni,2),300,'black','X');
-% 
-% set(gca,'xtick',[])
-% set(gca,'ytick',[])
-% box on
-% 
-% distance_from_zero = sqrt(sum(Y.^2,2)); %row-wise norm of Y
-% [M,I] = min(distance_from_zero);
-% disp (['Central gene predicted by MDS is:' geni_names(I)]);
-% 
-% %% check position (in the multidimensional scaling) of the 96 interesting genes by Palsson
-% figure
-% load('cancer_genes_Palsson.mat');
-% dist = zeros(numel(cancer_genes_Palsson),1);
-% ix =[];
-% for i =1:numel(cancer_genes_Palsson)
-%     new_ind = find(strcmp(geni_names,cancer_genes_Palsson{i}));
-%     ix = [ix new_ind']; %list of positions in geni of the 96 cancer genes by Palsson (supplementary material file S1). Some genes may have multiple positions due to the transcriptional variants
-%     dist(i) = mean(distance_from_zero(ix(i)));
-% end
-% 
-% C = distance_from_zero;  %colour according to the low edge score
-% scatter(Y(:,1),Y(:,2),200,C,'.');
-% title('Distance from (0,0)   [X = 96 cancer genes by Palsson]');
-% colorbar;
-% hold on
-% scatter(Y(ix,1),Y(ix,2),200,'black','X');
-% 
-% %% check position (in the multidimensional scaling) of the 180 cancer-related genes by Syed Haider
-% figure
-% load('cancer_genes_Syed.mat');
-% dist = zeros(numel(cancer_genes_Syed),1);
-% ix =[];
-% for i =1:numel(cancer_genes_Syed)
-%     new_ind = find(strcmp(geni_names,cancer_genes_Syed{i}));
-%     ix = [ix new_ind']; %list of positions in geni of the 96 cancer genes by Palsson (supplementary material file S1). Some genes may have multiple positions due to the transcriptional variants
-%     
-% end
-% 
-% C = distance_from_zero;  %colour according to the low edge score
-% scatter(Y(:,1),Y(:,2),200,C,'.');
-% title('Distance from (0,0)   [X = cancer genes by Syed Haider]');
-% colorbar;
-% hold on
-% scatter(Y(ix,1),Y(ix,2),200,'black','X');
-% 
-
-%exportfig(gcf, 'figura.pdf', 'color', 'cmyk', 'Width', '1000', 'Height',
-%'600', 'FontMode', 'scaled', 'FontSize', '1' );
