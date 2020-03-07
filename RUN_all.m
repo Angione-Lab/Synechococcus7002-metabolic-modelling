@@ -1,4 +1,4 @@
-%RUN_all script runs norm-2 regularized bi-level optimization, integrating RNA-seq data from Cyanomics \url{http://lag.ihb.ac.cn/cyanomics}:
+%RUN_all script runs norm-2 regularized bi-level optimization, integrating RNA-seq transcriptomic data from studies conducted by Ludwig and Bryant deposited in Cyanomics.
 
 load('reaction_expression.mat');
 load('SynechococcusPCC7002.mat'); %fbamodel
