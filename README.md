@@ -8,7 +8,7 @@ The folder transcriptomic_data contains all RNA sequencing data downloaded from 
  - The initial .xls datasets containing RPKM values for each gene/locus (Dataset1split.xls and Dataset2split.xls) were imported into     Matlab as matrices (Dataset1RPKM and Dataset2RPKM) that were converted into fold change values centred around 1 by dividing each condition by the mean of three standard controls (Dataset1newFC and Dataset2newFC). Combining both of these matrices gives the single matrix DatasetsnewFC.
  - All other filenames ending in "...newFC" are separate vectors for each growth condition called by FBA.
  
-The simulation begins by running the RUN_all script, where regularized flux balance analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II, saved as all_atp_flux, all_p1_flux, all_p2_flux.
+The simulation begins by running the RUN_all script, where regularized flux balance analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II.
 
 - All outputs are converted into absolute values and flux values < 10^-4 are set to zero to account for solver error.
 - Prior to combining transcriptomic and fluxomic data in a common matrix, fold change is performed on fluxes by dividing all conditions by the standard control flux.
