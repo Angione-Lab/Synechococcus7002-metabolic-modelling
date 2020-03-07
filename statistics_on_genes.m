@@ -1,3 +1,5 @@
+# statistics_on_genes runs k-means clustering with multi-dimensional scaling for transcript data downloaded from Cyanomics database or flux data generated from RUN_all.m
+
 load('SynechococcusPCC7002.mat'); %fbamodel
 load('Syn7002_IDs.mat'); % list of gene IDs extracted from transcriptomic reads file
 
