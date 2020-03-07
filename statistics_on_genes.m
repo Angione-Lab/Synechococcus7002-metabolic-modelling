@@ -12,7 +12,7 @@ M = 2; %number of objectives
 %% COMPUTE PROFILES OF THE NONDOMINATED POINTS
 
 load('transcripts.mat')
-all_objpairs = transcripts'; % choose dataset
+all_objpairs = transcripts'; % choose dataset i.e. from transcripts (transcripts) , fluxes (all_atp_flux, all_p1_flux, all_p2_flux), or combined (ATPTF, P1TF, P2TF)
 all_solutions = transcripts'; % same dataset here
 
 %%
@@ -106,7 +106,7 @@ suptitle('K-Means Clustering of Profiles');
 % % 
 %[Y,stress] = mdscale_robust(dist_correlation_vector,2,'sstress','metricsstress');
 %[Y,stress] = mdscale_robust(dist_correlation_vector,2,'criterion','metricstress');
-options = statset('MaxIter',500);
+options = statset('MaxIter',500); % change MaxIter to 500
 [Y,stress] = mdscale_robust(dist_correlation_vector,2,'criterion','sstress','start','random','Options',options); %mdscale_robust is a variation which circumvents colocation error by multiplying dissimilarities by a scalar
 
 figure
