@@ -1,6 +1,5 @@
 import json
 # save single flux vectors as JSON out files
-# These flux vectors are from the excel dataset flux_comparison
 
 # High light condition (HL)
 
