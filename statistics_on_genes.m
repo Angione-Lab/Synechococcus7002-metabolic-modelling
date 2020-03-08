@@ -9,9 +9,43 @@ genes_in_dataset = Syn7002_IDs;
 V = numel(genes);
 M = 2; %number of objectives
 
+% Load transcripts
+load('transcripts.mat')
+
+% Load flux matrices and calculate flux fold changes by dividing all experimental flux vectors by control flux vector
+load('all_atp_flux.mat')
+load('all_p1_flux.mat')
+load('all_p2_flux.mat')
+
+ATP_FC=all_atp_flux(:,1:23)./all_atp_flux(:,24);
+P1_FC=all_p1_flux(:,1:23)./all_p1_flux(:,24);
+P2_FC=all_p2_flux(:,1:23)./all_p2_flux(:,24);
+
+ATP_FC(isnan(ATP_FC))=1;%set NaN values to 1
+ATP_FC(isinf(ATP_FC))=max_ATP_FC;% set inf values to max flux value in matrix
+
+P1_FC(isnan(P1_FC))=1;
+P1_FC(isinf(P1_FC))=max_P1_FC;
+
+P2_FC(isnan(P2_FC))=1;
+P2_FC(isinf(P2_FC))=max_P2_FC;
+
+transcripts(24,:)=ones; %all ones for standard control FC
+
+ATP_FC=ATP_FC';
+ATPTF=horzcat(transcripts,ATP_FC);
+ATPTF(24,:)=ones;  %all ones for standard control FC
+
+P1_FC=P1_FC';
+P1TF=horzcat(transcripts,P1_FC);
+P1TF(24,:)=ones;  %all ones for standard control FC
+
+P2_FC=P2_FC';
+P2TF=horzcat(transcripts,P2_FC);
+P2TF(24,:)=ones;  %all ones for standard control FC
+
 %% COMPUTE PROFILES OF THE NONDOMINATED POINTS
 
-load('transcripts.mat')
 all_objpairs = transcripts'; % choose dataset i.e. from transcripts (transcripts) , fluxes (all_atp_flux, all_p1_flux, all_p2_flux), or combined (ATPTF, P1TF, P2TF)
 all_solutions = transcripts'; % same dataset here
 
