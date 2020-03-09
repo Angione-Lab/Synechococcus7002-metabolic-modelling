@@ -17,7 +17,7 @@ PCA in conducted in R using the script PCA_script.R
 
 k-means clustering is run using the statistics_on_genes.m script, which also calls mdscale_robust.m, a script that applies multidimensional scaling to avoid co-location of data points during clustering.
 
-The folder lasso contains a script for running LASSO regularization in Matlab with subsets of transcript/flux data serving as predictor data (x) and growth rates measured across 12 growth conditions as a response (y)
+The folder lasso contains a script for running LASSO regularization in Matlab with subsets of transcript/flux data serving as predictor data (x) and growth rates measured across 12 growth conditions as responses (y).
 
 Flux maps in Fig 5 of the main text were generated using Escher http://escher.github.io/
 The JSON model and map are saved as SynPCC7002_model.json and SynPCC7002_map.json.
