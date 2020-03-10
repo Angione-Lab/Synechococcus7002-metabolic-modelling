@@ -1,6 +1,8 @@
 % Load model and flux data
 % load('SynechococcusPCC7002.mat');
-% load('matlab_10.02.20.mat');
+% load ('all_atp_flux.mat')
+% load ('all_p1_flux.mat')
+% load ('all_p2_flux.mat')
 % 
 % Use absolute flux values
 % all_atp_flux = abs(all_atp_flux);
