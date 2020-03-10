@@ -1,4 +1,7 @@
 %RUN_all script runs norm-2 regularized bi-level optimization, integrating RNA-seq transcriptomic data from studies conducted by Ludwig and Bryant deposited in Cyanomics.
+%Add code repositories to MATLAB path
+addpath(genpath('C:/Users/****/Synechococcus-metabolic-modelling-master'));
+addpath(genpath('C:/Users/****/Synechococcus-metabolic-modelling-master/transcriptomic_data'));
 
 load('reaction_expression.mat');
 load('SynechococcusPCC7002.mat'); %fbamodel
