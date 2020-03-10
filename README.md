@@ -25,7 +25,7 @@ The folder lasso contains the script lasso_script.m for running LASSO regulariza
 
 Flux maps in Fig 5 of the main text were generated using Escher http://escher.github.io/.
 The model file SynechococcusPCC7002.mat was converted into SynPCC7002_model.json using cobrapy https://opencobra.github.io/cobrapy/.
-The JSON model and map were saved as SynPCC7002_model.json and SynPCC7002_map.json.
+The JSON map was saved as SynPCC7002_map.json.
 Reaction data were loaded using the python script flux_comparison_json.py, which produces output files for various growth conditions.
 
 
