@@ -19,7 +19,7 @@ https://opencobra.github.io/cobratoolbox/stable/.
 
 PCA was conducted in R using the script `PCA_script.R`.
 
-k-means clustering was run using the `statistics_on_genes.m` script, which also calls `mdscale_robust.m`, a script that applies multidimensional scaling to avoid co-location of data points during clustering.
+k-means clustering was run using the `statistics_on_genes.m` script, which also calls `mdscale_robust.m`, a script that applies multidimensional scaling to avoid co-location of data points during clustering https://github.com/jooh/matlab-plotting/blob/master/mdscale_robust.m.
 
 The folder lasso contains the script `lasso_script.m` for running LASSO regularization in Matlab with subsets of transcript/flux data serving as predictor data (x) and growth rates measured across 12 growth conditions as responses (y).
 
