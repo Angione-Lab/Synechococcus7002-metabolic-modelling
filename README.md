@@ -6,7 +6,7 @@ and converted into .mat format for modelling - this is saved as SynechococcusPCC
 
 The folder transcriptomic_data contains all RNA sequencing data downloaded from Cyanomics:
  - The initial .xls datasets containing RPKM values for each gene/locus (Dataset1split.xls and Dataset2split.xls) were imported into     Matlab as matrices (Dataset1RPKM and Dataset2RPKM) that were converted into fold change values centred around 1 by dividing each condition by the mean of three standard controls (Dataset1newFC and Dataset2newFC). Combining both of these matrices gives the single matrix DatasetsnewFC.
- - All other filenames ending in "...newFC" are separate vectors for each growth condition called by FBA.
+ - All other filenames ending in "...newFC" are separate vectors for each growth condition converted into expression profiles that are called by evaluate_objective_minNorm.m when running RUN_all.m.
  
 The simulation begins by running the RUN_all script, where regularized flux balance analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II.
 
