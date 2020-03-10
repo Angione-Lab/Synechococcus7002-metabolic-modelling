@@ -50,7 +50,7 @@ ix_g = find(fbamodel.g==1); %check current secondary objective
 ix_new_f = 735; % set new main objective = standard biomass reaction (735) 
 
 % In each simulation, a secondary objective must be specified *manually* by uncommenting the selected reaction and commenting the other two reactions when not in use.
-% Therefore, in line 665, the name of the outputs should be be renamed to specify which secondary objective was in use i.e. all_atp_flux, all_p1_flux or all_p2_flux.
+% Therefore, in line 664, the name of the outputs should be be renamed to specify which secondary objective was in use i.e. all_atp_flux, all_p1_flux or all_p2_flux.
 % Set new secondary objective g
 ix_new_g = find(ismember(fbamodel.rxnNames,'ATP maintenance requirment')==1); % select this objective to produce all_atp_flux
 % ix_new_g = find(ismember(fbamodel.rxnNames,'Photosystem I Reaction (cytochrome c6)')==1); % select this objective to produce all_p1_flux
