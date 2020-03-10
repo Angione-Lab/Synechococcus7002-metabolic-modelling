@@ -2,6 +2,8 @@
 %Add code repositories to MATLAB path
 addpath(genpath('C:/Users/****/Synechococcus-metabolic-modelling-master'));
 addpath(genpath('C:/Users/****/Synechococcus-metabolic-modelling-master/transcriptomic_data'));
+addpath(genpath('C:/Users/****/Synechococcus-metabolic-modelling-master/lasso'));
+
 savepath();
 
 load('reaction_expression.mat');
