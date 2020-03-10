@@ -10,7 +10,6 @@ The folder transcriptomic_data contains all RNA sequencing data downloaded from 
  
 The simulation begins by running the RUN_all script, where regularized flux balance analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II. All simulations are run using the Cobra Toolbox in MATLAB R2019b using the Gurobi Optimizer 9.0 as a solver 
 https://opencobra.github.io/cobratoolbox/stable/
-https://www.gurobi.com/
 
 - All outputs are converted into absolute values and flux values < 10^-4 are set to zero to account for solver error.
 - Prior to combining transcriptomic and fluxomic data in a common matrix, fold change is performed on fluxes by dividing all conditions by the standard control flux.
