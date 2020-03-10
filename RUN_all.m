@@ -47,12 +47,14 @@ ix_f = find(fbamodel.f==1); %check current primary objective
 ix_g = find(fbamodel.g==1); %check current secondary objective
 
 % Set new primary objective f
-ix_new_f = 735; % set new main objective = standard biomass (735) or 73=c-lim, 74=nlim, 75=llim?
+ix_new_f = 735; % set new main objective = standard biomass reaction (735) 
 
+% In each simulation, a secondary objective must be specified *manually* by uncommenting the selected reaction and commenting the other two reactions when not in use.
+% Therefore, in line 665, the name of the outputs should be be renamed to specify which secondary objective was in use i.e. all_atp_flux, all_p1_flux or all_p2_flux.
 % Set new secondary objective g
-ix_new_g = find(ismember(fbamodel.rxnNames,'ATP maintenance requirment')==1);
-% ix_new_g = find(ismember(fbamodel.rxnNames,'Photosystem I Reaction (cytochrome c6)')==1);
-% ix_new_g = find(ismember(fbamodel.rxnNames,'photosystem II reaction')==1);
+ix_new_g = find(ismember(fbamodel.rxnNames,'ATP maintenance requirment')==1); % select this objective to produce all_atp_flux
+% ix_new_g = find(ismember(fbamodel.rxnNames,'Photosystem I Reaction (cytochrome c6)')==1); % select this objective to produce all_p1_flux
+% ix_new_g = find(ismember(fbamodel.rxnNames,'photosystem II reaction')==1); % select this objective to produce all_p2_flux
 
 % Select new objective functions for simulation
 
@@ -60,7 +62,6 @@ fbamodel.f(ix_f) = 0;
 fbamodel.f(ix_new_f) = 1;
 fbamodel.g(ix_g) = 0;
 fbamodel.g(ix_new_g) = 1;
-
 
 %% Model constraints
 %% Boundary constraints to simulate growth medium and record experimentally feasible growth rates
@@ -661,4 +662,4 @@ V = numel(genes);
 % % % 
 % % %% Concatenate flux vectors for all growth conditions
 all_atp_flux = [v1_control,v1_do,v1_da,v1_hl,v1_od04,v1_od10,v1_od30,v1_od50,v1_lo2,v1_lco2,v1_nlim,v1_slim,v1_plim,v1_felim,v1_no3,v1_nh3,v1_urea,v1_heat,v1_22c,v1_30c,v1_oxs,v1_mix,v1_ls,v1_hs];
-% Change all_atp_flux to all_p1_flux or all_p2_flux when changing ix_new_g (secondary flux objective)
+% Change all_atp_flux to all_p1_flux or all_p2_flux when changing ix_new_g (secondary flux objective) in lines 55-57.
