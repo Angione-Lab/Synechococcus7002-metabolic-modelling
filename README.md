@@ -8,7 +8,7 @@ The folder transcriptomic_data contains all RNA sequencing data downloaded from 
 https://lag.ihb.ac.cn/cyanomics (link no longer active).
 https://academic.oup.com/database/article/doi/10.1093/database/bau127/2433127.
 
- - The initial .xls datasets containing RPKM values for each gene/locus (`Dataset1split.xls` and `Dataset2split.xls`) were imported into     Matlab as matrices (`Dataset1RPKM.mat` and `Dataset2RPKM.mat`) that were converted into fold change values centred around 1 by dividing each condition by the mean of three standard controls (`Dataset1newFC.mat` and `Dataset2newFC.mat`). Combining both of these matrices gives the single matrix `DatasetsnewFC.at`.
+ - The initial .xls datasets containing RPKM values for each gene/locus (`Dataset1split.xls` and `Dataset2split.xls`) were imported into     Matlab as matrices (`Dataset1RPKM.mat` and `Dataset2RPKM.mat`) that were converted into fold change values centred around 1 by dividing each condition by the mean of three standard controls (`Dataset1newFC.mat` and `Dataset2newFC.mat`). Combining both of these matrices gives the single matrix `DatasetsnewFC.mat`.
  - All other filenames ending in "...newFC.mat" are separate vectors for each growth condition converted into expression profiles that are called by `evaluate_objective_minNorm.m` when running `RUN_all.m`.
  
 The simulation is initialized by running the `RUN_all.m` script, where regularized flux balance analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II. All simulations were run using the Cobra Toolbox in MATLAB R2019b with the Gurobi Optimizer 9.0 as a solver:
