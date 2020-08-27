@@ -23,7 +23,7 @@ https://opencobra.github.io/cobratoolbox/stable/. Loading `bounds.mat` ensured a
 - All outputs were converted into absolute values and flux values < 10^-4 are set to zero to account for solver error.
 - Prior to combining transcriptomic and fluxomic data in a common matrix, fold change was performed on fluxes by dividing all conditions by the standard control flux.
 
-PCA was conducted in R using the script `PCA_script.R`.
+PCA was conducted in R using the script `PCA_script.R`, which uses the FactoMineR and factoextra packages for analysis.
 
 k-means clustering was run using the `statistics_on_genes.m` script, which also calls `mdscale_robust.m`, a script that applies multidimensional scaling to avoid co-location of data points during clustering: https://github.com/jooh/matlab-plotting/blob/master/mdscale_robust.m.
 
