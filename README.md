@@ -7,6 +7,10 @@ and converted into .mat format for modelling - this is saved as `SynechococcusPC
 The folder transcriptomic_data contains all RNA sequencing data downloaded from Cyanomics, a database based on the results of Synechococcus sp. PCC 7002 omics studies:
 https://lag.ihb.ac.cn/cyanomics (link no longer active).
 https://academic.oup.com/database/article/doi/10.1093/database/bau127/2433127.
+Subsequently, the relevant files have been made available at the NCBI Sequence Read Archive:
+- https://www.ncbi.nlm.nih.gov/sra?term=SRP007372 
+- https://www.ncbi.nlm.nih.gov/sra?term=SRP013965 
+- https://www.ncbi.nlm.nih.gov/sra/?term=SRP066851
 
  - The initial .xls datasets containing RPKM values for each gene/locus (`Dataset1split.xls` and `Dataset2split.xls`) were imported into     Matlab as matrices (`Dataset1RPKM.mat` and `Dataset2RPKM.mat`) that were converted into fold change values centred around 1 by dividing each condition by the mean of three standard controls (`Dataset1newFC.mat` and `Dataset2newFC.mat`). Combining both of these matrices gives the single matrix `DatasetsnewFC.mat`.
  - All other filenames ending in "...newFC.mat" are separate vectors for each growth condition converted into expression profiles that are called by `evaluate_objective_minNorm.m` when running `RUN_all.m`.
@@ -29,6 +33,7 @@ The model file `SynechococcusPCC7002.mat` was converted into `SynPCC7002_model.j
 The JSON map was saved as `SynPCC7002_map.json`.
 Reaction data were loaded using the python script `flux_comparison_json.py`, which produces output files for various growth conditions.
 
+The Pearson correlation coefficients are calculated using the script `corrcoef_tf_gr.m`, along with their respective p-values, and the lower and upper bounds of the 95% confidence interval.
 `sort_subsys.m` is a script used to sort fluxes by their unique subsystem names for plotting the mean Pearson correlation coefficient (PCC)  according to model subsystems in Fig 5(c) of the main text.
 
 
