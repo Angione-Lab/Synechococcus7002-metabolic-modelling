@@ -7,7 +7,8 @@ and converted into .mat format for modelling - this is saved as `SynechococcusPC
 The folder transcriptomic_data contains all RNA sequencing data downloaded from Cyanomics, a database based on the results of Synechococcus sp. PCC 7002 omics studies:
 https://lag.ihb.ac.cn/cyanomics (link no longer active).
 https://academic.oup.com/database/article/doi/10.1093/database/bau127/2433127.
-Subsequently, the relevant files have been made available at the NCBI Sequence Read Archive:
+
+Currently, the relevant files are available at the NCBI Sequence Read Archive:
 - https://www.ncbi.nlm.nih.gov/sra?term=SRP007372 
 - https://www.ncbi.nlm.nih.gov/sra?term=SRP013965 
 - https://www.ncbi.nlm.nih.gov/sra/?term=SRP066851
