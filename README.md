@@ -1,7 +1,7 @@
 # Synechococcus-metabolic-modelling  
 This archive contains code files and data utilized in the publication: "A hybrid multi-omic modeling and machine learning pipeline to identify adaptation mechanisms of cyanobacteria".
 
-The `modelXML.xml` model file for the Synechococcus PCC 7002 was previously published in https://www.sciencedirect.com/science/article/abs/pii/S0960852416302747
+The `modelXML.xml` model file for the Synechococcus sp. PCC 7002 was previously published in https://www.sciencedirect.com/science/article/abs/pii/S0960852416302747
 and converted into .mat format for modelling - this is saved as `SynechococcusPCC7002.mat`
 
 The folder transcriptomic_data contains all RNA sequencing data downloaded from Cyanomics, a database based on the results of Synechococcus sp. PCC 7002 omics studies:
