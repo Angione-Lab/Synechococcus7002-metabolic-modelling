@@ -1,5 +1,5 @@
 # Synechococcus7002-metabolic-modelling  
-This archive contains code files and data utilized in the publication: "A hybrid multi-omic modeling and machine learning pipeline to identify adaptation mechanisms of cyanobacteria".
+This archive contains code files and data utilized in the publication: "A hybrid multi-omic modeling and machine learning pipeline to elucidate metabolic response of cyanobacteria to different growth conditions".
 
 The `modelXML.xml` model file for the Synechococcus sp. PCC 7002 was previously published in https://www.sciencedirect.com/science/article/abs/pii/S0960852416302747
 and converted into .mat format for modelling - this is saved as `SynechococcusPCC7002.mat`
@@ -37,8 +37,10 @@ Reaction data were loaded using the python script `flux_comparison_json.py`, whi
 The Pearson correlation coefficients are calculated using the script `corrcoef_tf_gr.m`, along with their respective p-values, and the lower and upper bounds of the 95% confidence interval.
 `sort_subsys.m` is a script used to sort fluxes by their unique subsystem names for plotting the mean Pearson correlation coefficient (PCC)  according to model subsystems in Fig 5(c) of the main text.
 
-
-
+The contributions to the code scripts by Supreeta Vijayakumar (S.V.) and Claudio Angione (C.A) were as follows:
+- `associate_genes_reactions.m`,`compute_reaction_expression.m`,`evaluate_objective_minNorm.m`,`flux_balance_minNorm.m`,`statistics_on_genes.m` - C.A.
+- `corrcoef_tf_gr.m`,`flux_comparison_json.py`, `sort_subsys.m` - S.V.
+- `RUN_all.m`.- C.A and S.V
 
 
 
