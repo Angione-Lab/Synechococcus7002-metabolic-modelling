@@ -39,9 +39,5 @@ The Pearson correlation coefficients are calculated using the script `corrcoef_t
 
 The contributions to the code scripts by Supreeta Vijayakumar (S.V.) and Claudio Angione (C.A) were as follows:
 - `associate_genes_reactions.m`,`compute_reaction_expression.m`,`evaluate_objective_minNorm.m`,`flux_balance_minNorm.m`,`statistics_on_genes.m` - C.A.
-- `corrcoef_tf_gr.m`,`flux_comparison_json.py`, `sort_subsys.m` - S.V.
+- `corrcoef_tf_gr.m`,`flux_comparison_json.py`, `lasso_script`, `sort_subsys.m` - S.V.
 - `RUN_all.m`.- C.A and S.V
-
-
-
-
