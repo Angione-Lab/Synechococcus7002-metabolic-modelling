@@ -24,8 +24,3 @@ ub95=zeros(3187,1); % lower bound for 95% confidence
 %  rsquared=rsquare(transcripts(:,i),Y2);
 %  rsq(i)= rsquared;
 %  end
-% N = size(absolute_P2TF_FC,2); % Specify size of data matrix
-% for i=1:N
-%    tmp = corr(absolute_P2TF_FC(:,i),Y2,'Type','Pearson'); %Y1 contains doubling %, Y2 contains growth rates
-%    D(i,:)=tmp;
-% end
