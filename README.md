@@ -29,6 +29,8 @@ k-means clustering was run using the `statistics_on_genes.m` script, which also 
 
 The folder lasso contains the script `lasso_script.m` for running LASSO regularization in Matlab with subsets of transcript/flux data serving as predictor data (x) and growth rates measured across 12 growth conditions as responses (y).
 
+Plots in Fig 4(a) & 4(b) were generated using `pyramid_plot2_script.R`, Figs 4(c-f) using `radarchart_script.R`, and Figs 4(g-l) using `PCplot.R`.
+
 Flux maps in Fig 5(a) & 5(b) of the main text were generated using Escher: https://escher.github.io/.
 The model file `SynechococcusPCC7002.mat` was converted into `SynPCC7002_model.json` using cobrapy https://opencobra.github.io/cobrapy/.
 The JSON map was saved as `SynPCC7002_map.json`.
