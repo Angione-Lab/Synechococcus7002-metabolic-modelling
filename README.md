@@ -36,6 +36,8 @@ The model file `SynechococcusPCC7002.mat` was converted into `SynPCC7002_model.j
 The JSON map was saved as `SynPCC7002_map.json`.
 Reaction data were loaded using the python script `flux_comparison_json.py`, which produces output files for various growth conditions.
 
+`gamma_varied_eval_minNorm.xlsx` contains the results of the sensitivity analysis conducted to assess the robustnuss of the gamma parameter value selected (3.5) for regularized flux balance analysis to ensure maximum variability of flux values across different growth conditions.
+
 The Pearson correlation coefficients are calculated using the script `corrcoef_tf_gr.m`, along with their respective p-values, and the lower and upper bounds of the 95% confidence interval.
 `sort_subsys.m` is a script used to sort fluxes by their unique subsystem names for plotting the mean Pearson correlation coefficient (PCC)  according to model subsystems in Fig 5(c) of the main text.
 
