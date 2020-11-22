@@ -1,5 +1,5 @@
 # Synechococcus7002-metabolic-modelling  
-This archive contains code files and data utilized in the publication: "A hybrid multi-omic modeling and machine learning pipeline to elucidate metabolic response of cyanobacteria to different growth conditions".
+This archive contains code files and data utilized in the publication: "A hybrid multi-omic modeling and machine learning pipeline to elucidate metabolic response of cyanobacteria to different growth conditions". https://www.cell.com/iscience/fulltext/S2589-0042(20)31015-4
 
 The `modelXML.xml` model file for the Synechococcus sp. PCC 7002 was previously published in https://www.sciencedirect.com/science/article/abs/pii/S0960852416302747
 and converted into .mat format for modelling - this is saved as `SynechococcusPCC7002.mat`
