@@ -660,6 +660,6 @@ end
 V = numel(genes);
 [v1_hs, f_out_hs] = evaluate_objective_minNorm(x,M,V,fbamodel,genes,reaction_expression,pos_genes_in_react_expr,ixs_geni_sorted_by_length); 
 % % % 
-% % %% Concatenate flux vectors for all growth conditions
-all_atp_flux = [v1_control,v1_do,v1_da,v1_hl,v1_od04,v1_od10,v1_od30,v1_od50,v1_lo2,v1_lco2,v1_nlim,v1_slim,v1_plim,v1_felim,v1_no3,v1_nh3,v1_urea,v1_heat,v1_22c,v1_30c,v1_oxs,v1_mix,v1_ls,v1_hs];
+% % %% Concatenate flux vetors for all growth conditions
+all_atp_flux = [v1_do,v1_da,v1_hl,v1_od04,v1_od10,v1_od30,v1_od50,v1_lo2,v1_lco2,v1_nlim,v1_slim,v1_plim,v1_felim,v1_no3,v1_nh3,v1_urea,v1_heat,v1_22c,v1_30c,v1_oxs,v1_mix,v1_ls,v1_hs,v1_control];
 % Change all_atp_flux to all_p1_flux or all_p2_flux when changing ix_new_g (secondary flux objective) in lines 55-57.
