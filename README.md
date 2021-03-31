@@ -39,9 +39,10 @@ Reaction data were loaded using the python script `flux_comparison_json.py`, whi
 `gamma_varied_eval_minNorm.xlsx` contains the results of the sensitivity analysis conducted to assess the robustnuss of the gamma parameter value selected (3.5) for regularized flux balance analysis to ensure maximum variability of flux values across different growth conditions.
 
 The Pearson correlation coefficients are calculated using the script `corrcoef_tf_gr.m`, along with their respective p-values, and the lower and upper bounds of the 95% confidence interval.
-`sort_subsys.m` is a script used to sort fluxes by their unique subsystem names for plotting the mean Pearson correlation coefficient (PCC)  according to model subsystems in Fig 5(c) of the main text.
+`sort_multi_subsys.m` is a script used to sort fluxes by their unique subsystem names for plotting the sums and averages of principal components in Figs 4(b-f) of the main text.
+`PCC_subsys.m` is a script used to calculate mean Pearson correlation coefficients (PCCs) according to model subsystems in Fig 5(c) of the main text.
 
 The contributions by Supreeta Vijayakumar (S.V.) and Claudio Angione (C.A.) to the scripts listed above were as follows:
 - `associate_genes_reactions.m`,`compute_reaction_expression.m`,`evaluate_objective_minNorm.m`,`flux_balance_minNorm.m`,`statistics_on_genes.m` - C.A.
-- `corrcoef_tf_gr.m`,`flux_comparison_json.py`, `lasso_script`, `PCA_script.R`, `sort_subsys.m` - S.V.
+- `corrcoef_tf_gr.m`,`flux_comparison_json.py`, `lasso_script`, `PCA_script.R`, `sort_multi_subsys.m`, `PCC_subsys.m` - S.V.
 - `RUN_all.m` - C.A and S.V
