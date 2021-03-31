@@ -38,13 +38,15 @@ P2_PCC_mean(c) = mean(P2_PCC_abs(ixs_subsystems{c},1));
 %ATP_PCC_mean_old(c) = ATP_PCC_sum(c)./cardinality_old_subsystems(c);
 end
 
-%PCC_all = horzcat(ATP_PCC_mean,P1_PCC_mean,P2_PCC_mean);
+%% Combine all PCC values
+PCC_all = horzcat(ATP_PCC_mean,P1_PCC_mean,P2_PCC_mean);
+
 % Plot mean PCC values against subsystems
 X = categorical(list_subsystems);
-bar(X,ATP_PCC_mean);
+bar(X,PCC_all);
 xlabel('Subsystems'); 
 ylabel('Mean PCC');
 ax.FontSize = 8;
 hold on
 set(gca, 'XTickLabelRotation',45);
-%legend({'Biomass - ATP maintenance','Biomass - Photosystem I', 'Biomass - Photosystem II'},'Location','northwest');
+legend({'Biomass - ATP maintenance','Biomass - Photosystem I', 'Biomass - Photosystem II'},'Location','northwest');
