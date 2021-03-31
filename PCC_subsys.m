@@ -1,9 +1,13 @@
 %% Calculate average Pearson correlation coefficient for metabolic pathways
 % Load table of PCC values for flux data (ATP/P1/P2) 
 % corr_ATP = array2table(corr_ATP,'VariableNames',{'PCC'});
+% corr_P1 = array2table(corr_P1,'VariableNames',{'PCC'});
+% corr_P2 = array2table(corr_P2,'VariableNames',{'PCC'});
 
 % Select column containing PCC values and convert into array
 % ATP_PCC = table2array(corr_ATP_table(:,3));
+% P1_PCC = table2array(corr_P1_table(:,3));
+% P2_PCC = table2array(corr_P2_table(:,3));
 
 % Convert NaNs into 0
 ATP_PCC(isnan(ATP_PCC)) = 0;
@@ -16,10 +20,8 @@ P1_PCC_abs = abs(P1_PCC);
 P2_PCC_abs = abs(P2_PCC);
 
 % Load reaction indices for subsystems 
-% load('ixs_subsystems.mat');
+load('ixs_subsystems.mat');
 % Load number of reactions in subsystems
-% load('cardinality_subsystems.mat');
-cardinality_old_subsystems = zeros(numel(ixs_subsystems_uniq_old),1);
 cardinality_subsystems = zeros(numel(ixs_subsystems),1);
 
 % Create vectors to store sum and average PCC values
@@ -35,7 +37,6 @@ cardinality_subsystems(c) = numel(ixs_subsystems{c},1);
 ATP_PCC_mean(c) = mean(ATP_PCC_abs(ixs_subsystems{c},1));
 P1_PCC_mean(c) = mean(P1_PCC_abs(ixs_subsystems{c},1));
 P2_PCC_mean(c) = mean(P2_PCC_abs(ixs_subsystems{c},1));
-%ATP_PCC_mean_old(c) = ATP_PCC_sum(c)./cardinality_old_subsystems(c);
 end
 
 %% Combine all PCC values
