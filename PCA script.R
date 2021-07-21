@@ -85,7 +85,7 @@ pdf("P2flux_PCA.pdf")
 print(P2flux_PCA_plot)
 dev.off()
 
-#Obtain contributions of principal component variables (metabolic reactions) for each dataset
+#Obtain contributions of principal component variables (genes/metabolic reactions/both) for each dataset
 contributions_transcripts <-res_transcripts.pca$var$contrib
 contributions_ATPTF <-res_ATPTF.pca$var$contrib
 contributions_P1TF <-res_P1TF.pca$var$contrib
