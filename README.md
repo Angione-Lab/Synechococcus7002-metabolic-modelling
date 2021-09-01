@@ -14,9 +14,9 @@ Currently, the relevant files are available at the NCBI Sequence Read Archive:
 - https://www.ncbi.nlm.nih.gov/sra/?term=SRP066851
 
  - The initial .xls datasets containing RPKM values for each gene/locus (`Dataset1split.xls` and `Dataset2split.xls`) were imported into     Matlab as matrices (`Dataset1RPKM.mat` and `Dataset2RPKM.mat`) that were converted into fold change values centred around 1 by dividing each condition by the mean of three standard controls (`Dataset1newFC.mat` and `Dataset2newFC.mat`). Combining both of these matrices gives the single matrix `DatasetsnewFC.mat`.
- - All other filenames ending in "...newFC.mat" are separate vectors for each growth condition converted into expression profiles that are called by `evaluate_objective_minNorm.m` when running `RUN_all.m`.
+ - All other filenames ending in "...newFC.mat" are separate vectors for each growth condition converted into expression profiles that are called by `evaluate_objective_minNorm.m` or `evaluate_objective_FVA.m`when running `RUN_all.m`.
  
-The simulation is initialized by running the `RUN_all.m` script, where regularized flux balance analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II. Directions in the `RUN_all.m` script must be carefully followed to manually change the pair of objectives optimized for FBA in each of these three cases.
+The simulation is initialized by running the `RUN_all.m` script, where regularized flux balance analysis or flux variability analysis is conducted for three different pairs of flux objectives: Biomass - ATP maintenance, Biomass - Photosystem I and Biomass - Photosystem II. Directions in the `RUN_all.m` script must be carefully followed to manually change the pair of objectives optimized for FBA in each of these three cases.
 All simulations were run using the Cobra Toolbox in MATLAB R2019b with the Gurobi Optimizer 9.0 as a solver:
 https://opencobra.github.io/cobratoolbox/stable/. Loading `bounds.mat` ensured adjustment of specific upper and lower bounds according to growth media and other requirements specific to each condition (mainly nutrient and photon uptake).
 
@@ -43,6 +43,6 @@ The Pearson correlation coefficients are calculated using the script `corrcoef_t
 `PCC_subsys.m` is a script used to calculate mean Pearson correlation coefficients (PCCs) according to model subsystems in Fig 5(c) of the main text.
 
 The contributions by Supreeta Vijayakumar (S.V.) and Claudio Angione (C.A.) to the scripts listed above were as follows:
-- `associate_genes_reactions.m`,`compute_reaction_expression.m`,`evaluate_objective_minNorm.m`,`flux_balance_minNorm.m`,`statistics_on_genes.m` - C.A.
+- `associate_genes_reactions.m`,`compute_reaction_expression.m`,`evaluate_objective_FVA.m`,`evaluate_objective_minNorm.m`,`flux_balance_minNorm.m`,`statistics_on_genes.m` - C.A.
 - `corrcoef_tf_gr.m`,`flux_comparison_json.py`, `lasso_script`, `PCA_script.R`, `sort_multi_subsys.m`, `PCC_subsys.m` - S.V.
 - `RUN_all.m` - C.A and S.V
